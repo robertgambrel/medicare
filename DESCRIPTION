@@ -1,0 +1,16 @@
+Package: medicare
+Type: Package
+Title: Useful tools for obtaining and cleaning Medicare public use files
+Version: 0.0.0.9000
+Authors@R: person("Robert", "Gambrel", email = "robert.gambrel@gmail.com", 
+                  role = c("aut", "cre"))
+Description: This package has a set of commands useful for manipulating 
+    Medicare's publicly available data. Many data sources require extensive
+    initial effort to extract desired variables and merge them; this package
+    formalizes the techniques I've found to work best for them.
+License: MIT + file LICENSE
+LazyData: TRUE
+Imports:
+URL: http://www.github.com/robertgambrel/medicare
+BugReports: http://www.github.com/robertgambrel/medicare/issues
+RoxygenNote: 5.0.1
