@@ -1,4 +1,20 @@
 #' Extract a variable from a cost report
+#' 
+#' This function takes a 5-column alpha-numeric dataset or numeric dataset from 
+#' the Medicare cost reports, which are stored in a long format, and subsets 
+#' them based on the worksheet number, line number, and column number provided. 
+#' If desired, it will rename the resulting variable to whatever the user 
+#' chooses.
+#' 
+#' It does not automatically adjust for the same variable having different rows 
+#' / columns in Medicare data formatted for the 1996 vs 2010 form. The user may 
+#' have to use this function twice, once on each source of data, to extract one 
+#' variable over time.
+#' 
+#' It does automatically recode rows and columns into all possible permutations
+#' (ie '500', '0500', '00500', 500) when subsetting, since different cost
+#' reports use different schema.
+#' 
 #' @param dataset The name of a cost report alpha or numeric dataset
 #' @param worksheet The name of the workheet, converted to 7-character format
 #' @param row The row number of the data, as it appears in the Medicare workbook
@@ -7,8 +23,14 @@
 #'   workbook
 #' @param newname The name given to the variable that appears as a result of 
 #'   this extraction
-#' @return A 2-column dataset: one with the cost report rpt_rec_number, used to
-#'   merge data, and a column of the data requested
+#' @return A 2-column dataset: one with the cost report \code{rpt_rec_number}, 
+#'   used to merge data, and a column of the data requested, which is renamed if
+#'   desired.
+#'   
+#' @examples 
+#' 
+#' alpha_data <- cr_hospice_2014_alpha
+#' hospice_name <- cr_extract(alpha_data, "S100000", 100, 100, "name")
 
 cr_extract <- function(dataset,
                        worksheet,
@@ -38,7 +60,7 @@ cr_extract <- function(dataset,
   two_zero_col <- paste0("00", no_zeroes_col)
   # some rows in some sources have alphanumeric data. Try to convert them to
   # numeric, and if it fails, silently return NA
-  numeric_col <- tryCatch({as.numeric(col)}, 
+  numeric_col <- tryCatch({as.numeric(column)}, 
                           error = function(x) return(NA), 
                           warning = function(x) return(NA))
   
@@ -54,7 +76,7 @@ cr_extract <- function(dataset,
     warning("No data found with specified row number.")
   }
   
-  data_subset_3 <- data_subset[data_subset_2[, 4] %in% list(no_zeroes_col, one_zero_col,
+  data_subset_3 <- data_subset_2[data_subset_2[, 4] %in% list(no_zeroes_col, one_zero_col,
                                                        two_zero_col, numeric_col) &
                                  !is.na(data_subset_2[, 4]), ]
   if (nrow(data_subset_3) == 0) {
