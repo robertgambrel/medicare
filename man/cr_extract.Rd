@@ -2,7 +2,7 @@
 % Please edit documentation in R/cr_extract.R
 \name{cr_extract}
 \alias{cr_extract}
-\title{Extract a variable from a cost report}
+\title{Extract a variable from a Cost Report}
 \usage{
 cr_extract(dataset, worksheet, row, column, newname = "newvar")
 }

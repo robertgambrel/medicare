@@ -1,4 +1,4 @@
-#' Extract a variable from a cost report
+#' Extract a variable from a Cost Report
 #' 
 #' This function takes a 5-column alpha-numeric dataset or numeric dataset from 
 #' the Medicare cost reports, which are stored in a long format, and subsets 
