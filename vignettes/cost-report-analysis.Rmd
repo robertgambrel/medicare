@@ -1,0 +1,95 @@
+---
+title: "Extracting Variables from Cost Reports"
+author: "Robert Gambrel"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Extracting Variables from Cost Reports}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This vignette will show a brief example of how to use this package to extract data from Medicare cost reports. It will specify the parts that this package can handle automatically for you, and the parts that require the user to consult the cost report documentation or the actual worksheets themselves. 
+
+## Loading Cost Report Data
+
+Medicare cost reports for skilled nursing facilities, hospitals, and home health agencies are available at [CMS's website](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Cost-Reports-by-Fiscal-Year.html). Documentation of the cost reports, which will 
+There is a [separate site](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html) for hospice cost reports. Documentation of how each sector reports, and copies of the actual cost report worksheets that will help you determine which worksheet, row, and column you need to extract a particular variable of interest, [are here](https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Paper-Based-Manuals-Items/CMS021935.html).
+
+Hospices and HHA's have used the same reporting forms since the mid 1990's. Skilled nursing facilities and hospitals, however, switched their reporting guidelines in 2010. Therefore, writing extracts for variables from the 1996 forms will not work for data from the 2010 form. Crosswalks are available [on the sidebar here](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/index.html). Once you find the variable you want in the 1996 form, it's easy to translate the worksheet number, row, and column to the newer format. It's good practice to check a few facilities' results from both sources to make sure that the data is consistent across the reporting switch; this will ensure your extracts are working for both periods.
+
+In order to extract the variables, you'll have to visit the actual forms the facilities fill out. In my experience, the appropriate documentation files are:
+
+  * [Chapter 32: Home Health Agencies](https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/P152_32.zip)
+  * [Chapter 35: Skilled Nursing Facilities](https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/P152_35.zip)
+  * [Chapter 36: Hospitals](https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/P152_36.zip)
+  * [Chapter 38: Hospices](https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/P152_38.zip)
+  
+In this vignette, we'll focus on data from the hospice cost reports. That is one of the smaller datasets, and it s documentation is relatively straightforward. It also doesn't change reporting rules over time, so we could download all yearly data and run the same extract for each year's data if we wanted to.
+
+## Demo data
+
+I've included cost report data for 500 hospices in 2014. The data is raw and identical to what you get when importing from the downloaded CSV, so it has no headers or names and is initially pretty unweildy.
+
+```{r, eval = T, message = T}
+library(medicare)
+library(dplyr)
+```
+
+```{r, eval = T}
+alpha_14 <- data(cr_hospice_2014_alpha)
+#nmrc_14 <- cr_hospice_2014_nmrc
+#rpt_14 <- cr_hospice_2014_rpt
+```
+
+These are pretty indiscernable at first glance, and they don't have variable names by default. Those are all available in the documentation, but I've made a wrapper to make it quick and painless to name. Still, it's hard to know what to make of the data.
+
+```{r, eval = F}
+names(alpha_14) <- cr_alpha_names()
+names(nmrc_14) <- cr_nmrc_names()
+names(rpt_14) <- cr_rpt_names()
+
+lapply(list(alpha_14, nmrc_14, rpt_14), head)
+```
+
+You'd be correct in surmising that `rpt_rec_num` 
+
+Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+
+## Styles
+
+The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
+
+    output: 
+      rmarkdown::html_vignette:
+        css: mystyles.css
+
+## Figures
+
+The figure sizes have been customised so that you can easily put two images side-by-side. 
+
+```{r, fig.show='hold'}
+plot(1:10)
+plot(10:1)
+```
+
+You can enable figure captions by `fig_caption: yes` in YAML:
+
+    output:
+      rmarkdown::html_vignette:
+        fig_caption: yes
+
+Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+
+## More Examples
+
+You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+
+```{r, echo=FALSE, results='asis'}
+knitr::kable(head(mtcars, 10))
+```
+
+Also a quote using `>`:
+
+> "He who gives up [code] safety for [code] speed deserves neither."
+([via](https://twitter.com/hadleywickham/status/504368538874703872))
