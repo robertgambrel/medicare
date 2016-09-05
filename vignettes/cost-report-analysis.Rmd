@@ -31,20 +31,20 @@ In this vignette, we'll focus on data from the hospice cost reports. That is one
 
 I've included cost report data for 500 hospices in 2014. The data is raw and identical to what you get when importing from the downloaded CSV, so it has no headers or names and is initially pretty unweildy.
 
-```{r, eval = T, message = T}
+```{r, eval = T, message = F}
 library(medicare)
 library(dplyr)
 ```
 
 ```{r, eval = T}
-alpha_14 <- data(cr_hospice_2014_alpha)
-#nmrc_14 <- cr_hospice_2014_nmrc
-#rpt_14 <- cr_hospice_2014_rpt
+alpha_14 <- hospiceALPHA
+nmrc_14 <- hospiceNMRC
+rpt_14 <- hospiceRPT
 ```
 
 These are pretty indiscernable at first glance, and they don't have variable names by default. Those are all available in the documentation, but I've made a wrapper to make it quick and painless to name. Still, it's hard to know what to make of the data.
 
-```{r, eval = F}
+```{r, eval = T}
 names(alpha_14) <- cr_alpha_names()
 names(nmrc_14) <- cr_nmrc_names()
 names(rpt_14) <- cr_rpt_names()
@@ -52,44 +52,39 @@ names(rpt_14) <- cr_rpt_names()
 lapply(list(alpha_14, nmrc_14, rpt_14), head)
 ```
 
-You'd be correct in surmising that `rpt_rec_num` 
+You'd be correct in surmising that `rpt_rec_num` is the internal link between the three files. The `rpt` file has one entry per hospice submission (usually just one per year, but sometimes more). The `alpha` and `nmrc` files, though, have many. They do this becaues they have to collapse data from multiple spreadsheets into one uniform format. Each row points to a cell on a given worksheet.
 
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+## `ALPHA` and `NMRC` data
 
-## Styles
+To subset a variable, you'll need to look through the actual worksheets that facilities fill out. If you download the documentation linked above for hospice, you'll find an Excel spreadsheet file with multiple pages. Some have address and location info. Others report patient counts and treatment days. Still others have staffing information and revenue / cost annual totals. 
 
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
+First, we can see that the hospice name in on worksheet S-1. Lines are numbered, and it's row 1; similar for columns, we can see that it's column 1. The file convention is that the worksheet is always 6 characters, with no punctuation, with trailing 0's. Rows and columns are always multipled by 100. Since the name is an alphanumeric value, we should expect to find it in the `alpha` file. Note what happens if we try to extract it from the `nmrc` file.
 
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
+```{r}
+hospice_names <- cr_extract(alpha_14, "S100000", 100, 100, "hospice_name")
+nrow(hospice_names)
+hospice_names_nmrc <- cr_extract(nmrc_14, "S100000", 100, 100, "hospice_name")
+```
+Several warnings are thrown for the attempted numeric extract. We can do similar extracts for the hospice address, state, zip code, and patient count.
+```{r}
+hospice_address <- cr_extract(alpha_14, "S100000", 100, 200, "hospice_address")
+hospice_state <- cr_extract(alpha_14, "S100000", 100, 400, "hospice_state")
+hospice_zip <- cr_extract(alpha_14, "S100000", 100, 500, "hospice_zip")
+hospice_benes <- cr_extract(nmrc_14, "S100000", 1600, 600, "hospice_benes")
+```
+The zip codes were found in the `alpha` file, when you might expect them to be strictly numeric. Some of the ambiguous ones won't be clear and might require you to check both sources. In this case, 9-digit zips were saved with a `-` after the first 5 digits, so it's a character variable.
 
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+All the files can be linked by `rpt_rec_num`, so let's merge them.
+```{r}
+hospice_data <- Reduce(full_join, list(hospice_names, hospice_address, hospice_state, hospice_zip, hospice_benes))
+head(hospice_data)
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+## `rpt` data
+The `rpt` dataset has one entry per cost report filing. It includes the facility's CMS provider ID as well as its NPI, which can be used to link to other data sources. It also has the fiscal year start and end dates, so you know whether the data is current as of the end of the year vs. after a mid-year fiscal end date. Many of the variables aren't that useful, but it's worth skimming the documentation to see what you need. For now, we'll keep a few key variables and merge them with the rest of the data.
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
-
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+```{r}
+hospice_rpt_info <- rpt_14 %>% select(rpt_rec_num, prvdr_num, fy_bgn_dt, fy_end_dt)
+hospice_all <- full_join(hospice_rpt_info, hospice_data)
 ```
 
-Also a quote using `>`:
-
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
