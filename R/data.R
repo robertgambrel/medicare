@@ -13,7 +13,7 @@
 #'   \item{V5}{The \code{itm_alphanmrc_itm_txt}, indicating the variable's value.}
 #'   }
 #' @source \url{https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html}
-"cr_hospice_2014_alpha"
+"hospiceALPHA"
 
 
 
@@ -32,7 +32,7 @@
 #'   \item{V5}{The \code{itm_val_num}, indicating the variable's value.}
 #'   }
 #' @source \url{https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html}
-"cr_hospice_2014_nmrc"
+"hospiceNMRC"
 
 
 
@@ -66,4 +66,4 @@
 #'   \item{V18}{The \code{fi_rcpt_dt}, the date the cost report was received by the fiscal intermediary.}
 #'   }
 #' @source \url{https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html}
-"cr_hospice_2014_rpt"
+"hospiceRPT"
