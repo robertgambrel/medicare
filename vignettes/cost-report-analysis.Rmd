@@ -75,8 +75,11 @@ hospice_benes <- cr_extract(nmrc_14, "S100000", 1600, 600, "hospice_benes")
 The zip codes were found in the `alpha` file, when you might expect them to be strictly numeric. Some of the ambiguous ones won't be clear and might require you to check both sources. In this case, 9-digit zips were saved with a `-` after the first 5 digits, so it's a character variable.
 
 All the files can be linked by `rpt_rec_num`, so let's merge them.
-```{r}
+```{r, message = F}
 hospice_data <- Reduce(full_join, list(hospice_names, hospice_address, hospice_state, hospice_zip, hospice_benes))
+```
+
+```{r}
 head(hospice_data)
 ```
 
