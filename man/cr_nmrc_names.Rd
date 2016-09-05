@@ -16,5 +16,6 @@ Provide names for Cost Report "Numeric Table" data
 
 # get the list
 cr_nmrc_names()
+
 }
 

@@ -31,6 +31,8 @@
 #' 
 #' alpha_data <- cr_hospice_2014_alpha
 #' hospice_name <- cr_extract(alpha_data, "S100000", 100, 100, "name")
+#' 
+#' @export
 
 cr_extract <- function(dataset,
                        worksheet,

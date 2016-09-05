@@ -6,6 +6,8 @@
 #' 
 #' # get the list
 #' cr_nmrc_names()
+#' 
+#' @export
 
 cr_alpha_names <- function() {
   return(c("rpt_rec_num",

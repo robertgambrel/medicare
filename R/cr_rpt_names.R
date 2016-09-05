@@ -7,6 +7,7 @@
 #' # get the list
 #' cr_rpt_names()
 #' 
+#' @export
 
 cr_rpt_names <- function() {
   return(c("rpt_rec_num",
