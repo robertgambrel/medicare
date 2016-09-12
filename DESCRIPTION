@@ -19,5 +19,6 @@ Suggests: knitr,
     dplyr,
     ggplot2,
     maps,
-    magrittr
+    magrittr,
+    testthat
 VignetteBuilder: knitr
