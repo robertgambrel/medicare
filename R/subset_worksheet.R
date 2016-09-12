@@ -7,12 +7,6 @@
 #'   
 #' @return A subset of the provided dataset, subset to only having worksheets of
 #'   the correct value
-#'   
-#' @examples 
-#' 
-#' alpha_data <- hospiceALPHA
-#' sheet_s1 <- subset_worksheet(alpha_data, "S100000")
-#' 
 
 subset_worksheet <- function(dataset, worksheet) {
   

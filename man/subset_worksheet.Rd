@@ -18,10 +18,4 @@ A subset of the provided dataset, subset to only having worksheets of
 \description{
 This function is not standalone - it is called from the cr_extract function.
 }
-\examples{
-
-alpha_data <- hospiceALPHA
-sheet_s1 <- subset_worksheet(alpha_data, "S100000")
-
-}
 

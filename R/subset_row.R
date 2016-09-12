@@ -8,10 +8,6 @@
 #' @return A subset of the provided dataset, subset to only having rows of the
 #'   correct value
 #'   
-#' @examples 
-#' 
-#' alpha_data <- hospiceALPHA
-#' row_100 <- subset_row(alpha_data, 100)
 #' 
 
 subset_row <- function(dataset, row) {

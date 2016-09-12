@@ -18,10 +18,4 @@ A subset of the provided dataset, subset to only having columns of the
 \description{
 This function is not standalone - it is called from the cr_extract function.
 }
-\examples{
-
-alpha_data <- hospiceALPHA
-col_100 <- subset_column(alpha_data, 100)
-
-}
 

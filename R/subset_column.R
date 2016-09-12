@@ -7,12 +7,7 @@
 #'   
 #' @return A subset of the provided dataset, subset to only having columns of the
 #'   correct value
-#'   
-#' @examples 
-#' 
-#' alpha_data <- hospiceALPHA
-#' col_100 <- subset_column(alpha_data, 100)
-#' 
+
 
 subset_column <- function(dataset, column) {
   
