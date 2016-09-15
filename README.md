@@ -12,10 +12,12 @@ Installation and Documentation
 
 install.packages("broom")
 
-You can also install the development version of the broom package using [devtools](https://github.com/hadley/devtools):
+You can install the development version of the `medicare` package using [devtools](https://github.com/hadley/devtools):
 
     library(devtools)
     install_github("robertgambrel/medicare")
+
+Please let me know about any problems by [opening an issue](http://github.com/robertgambrel/medicarede/issues).
 
 For examples on how to use some of the functionality, check out the Vignettes, which show examples similar to what I've done in my work.
 
