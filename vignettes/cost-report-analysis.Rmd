@@ -161,7 +161,7 @@ We now have a working dataset capable of some initial analyses. For starters,
 recode the `ownership` variable to collapse into for-profit, nonprofit, and 
 government-run.
 
-```{r}
+```{r, fig.width = 6, fig.height = 4}
 hospice_all <- hospice_all %>%
   mutate(
     profit_group = ifelse(ownership <= 2, "nonprofit", 
@@ -194,7 +194,7 @@ per-beneficiary profit rates. Overall, it looks like for-profit agencies have
 higher average profit rates than nonprofit agencies, but the both show high
 variation.
 
-```{r}
+```{r, fig.width = 6, fig.height = 4}
 # use the state geometry files from the 'data' package
 state_map = map_data("state")
 
@@ -218,7 +218,8 @@ ggplot() +
            aes(map_id = state_name, fill = mean_profits),
            map = state_map) +
   expand_limits(x = state_map$long, y = state_map$lat) +
-  facet_wrap(~profit_group)
+  facet_wrap(~profit_group) +
+  scale_fill_gradient(low = "red", high = "blue")
 ```
 
 Here, the sample size is limiting our ability to draw any meaningful conclusions
