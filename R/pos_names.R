@@ -21,7 +21,7 @@
 #' 
 #' @export
 
-pos_names(year) <- function{
+pos_names <- function(year) {
   if (year == 2000) {
     return(
       c("CATEGORY_SUBTYPE_IND", "CATEGORY", "CHOW_CNT", "CHOW_DT", 
