@@ -37,6 +37,11 @@ pos_names_extract <- function(layout_file, data_file) {
   oldcols <- grep("PROV[[:digit:]]{4}|FIP[[:alpha:]]{3,5}|SSAM[[:alpha:]]{3,5}", 
                   layout, value = T)
   
+  # check: make sure the file is a layout file
+  if (length(oldcols) == 0) {
+    stop("Chosen layout_file had no generic variable names of PROV----, FIP-----, or SSAM-----. Make sure you use a layout file.")
+  }
+  
   ## Some extra lines match the FIP and SSAM above (they're descriptor lines).
   ## Drop them for being too short:
   oldcols<-subset(oldcols, nchar(oldcols)>50)
