@@ -2,4 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
+<<<<<<< HEAD
 medicare.Rproj
+=======
+inst/doc
+inst/extdata
+revdep/
+>>>>>>> 5c3976bbc4f60e954bdaf2f6b1db459d06364b68

@@ -9,31 +9,62 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-This vignette will show a brief example of how to use this package to extract data from Medicare cost reports. It will specify the parts that this package can handle automatically for you, and the parts that require the user to consult the cost report documentation or the actual worksheets themselves. 
+This vignette will show a brief example of how to use this package to extract
+data from Medicare cost reports. It will specify the parts that this package can
+handle automatically for you, and the parts that require the user to consult the
+cost report documentation or the actual worksheets themselves.
 
 ## Loading Cost Report Data
 
-Medicare cost reports for skilled nursing facilities, hospitals, and home health agencies are available at [CMS's website](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Cost-Reports-by-Fiscal-Year.html). Documentation of the cost reports, which will 
-There is a [separate site](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html) for hospice cost reports. Documentation of how each sector reports, and copies of the actual cost report worksheets that will help you determine which worksheet, row, and column you need to extract a particular variable of interest, [are here](https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Paper-Based-Manuals-Items/CMS021935.html).
+Medicare cost reports for skilled nursing facilities, hospitals, and home health
+agencies are available at [CMS's
+website](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Cost-Reports-by-Fiscal-Year.html).
+Documentation of the cost reports, which will There is a [separate
+site](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html)
+for hospice cost reports. Documentation of how each sector reports, and copies
+of the actual cost report worksheets that will help you determine which
+worksheet, row, and column you need to extract a particular variable of
+interest, [are
+here](https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Paper-Based-Manuals-Items/CMS021935.html).
 
-Hospices and HHA's have used the same reporting forms since the mid 1990's. Skilled nursing facilities and hospitals, however, switched their reporting guidelines in 2010. Therefore, writing extracts for variables from the 1996 forms will not work for data from the 2010 form. Crosswalks are available [on the sidebar here](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/index.html). Once you find the variable you want in the 1996 form, it's easy to translate the worksheet number, row, and column to the newer format. It's good practice to check a few facilities' results from both sources to make sure that the data is consistent across the reporting switch; this will ensure your extracts are working for both periods.
+Hospices and HHA's have used the same reporting forms since the mid 1990's.
+Skilled nursing facilities and hospitals, however, switched their reporting
+guidelines in 2010. Therefore, writing extracts for variables from the 1996
+forms will not work for data from the 2010 form. Crosswalks are available [on
+the sidebar
+here](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/index.html).
+Once you find the variable you want in the 1996 form, it's easy to translate the
+worksheet number, row, and column to the newer format. It's good practice to
+check a few facilities' results from both sources to make sure that the data is
+consistent across the reporting switch; this will ensure your extracts are
+working for both periods.
 
-In order to extract the variables, you'll have to visit the actual forms the facilities fill out. In my experience, the appropriate documentation files are:
+In order to extract the variables, you'll have to visit the actual forms the
+facilities fill out. In my experience, the appropriate documentation files are:
 
   * [Chapter 32: Home Health Agencies](https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/P152_32.zip)
   * [Chapter 35: Skilled Nursing Facilities](https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/P152_35.zip)
   * [Chapter 36: Hospitals](https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/P152_36.zip)
   * [Chapter 38: Hospices](https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/P152_38.zip)
   
-In this vignette, we'll focus on data from the hospice cost reports. That is one of the smaller datasets, and it s documentation is relatively straightforward. It also doesn't change reporting rules over time, so we could download all yearly data and run the same extract for each year's data if we wanted to.
+In this vignette, we'll focus on data from the hospice cost reports. That is one
+of the smaller datasets, and it s documentation is relatively straightforward.
+It also doesn't change reporting rules over time, so we could download all
+yearly data and run the same extract for each year's data if we wanted to.
 
 ## Demo data
 
-I've included cost report data for 500 hospices in 2014. The data is raw and identical to what you get when importing from the downloaded CSV, so it has no headers or names and is initially pretty unweildy.
+I've included cost report data for 500 hospices in 2014. The data is raw and
+identical to what you get when importing from the downloaded CSV, so it has no
+headers or names and is initially pretty unweildy.
 
 ```{r, eval = T, message = F}
 library(medicare)
 library(dplyr)
+library(magrittr)
+# optional for final maps
+library(ggplot2)
+library(maps)
 ```
 
 ```{r, eval = T}
@@ -42,7 +73,10 @@ nmrc_14 <- hospiceNMRC
 rpt_14 <- hospiceRPT
 ```
 
-These are pretty indiscernable at first glance, and they don't have variable names by default. Those are all available in the documentation, but I've made a wrapper to make it quick and painless to name. Still, it's hard to know what to make of the data.
+These are pretty indiscernable at first glance, and they don't have variable
+names by default. Those are all available in the documentation, but I've made a
+wrapper to make it quick and painless to name. Still, it's hard to know what to
+make of the data.
 
 ```{r, eval = T}
 names(alpha_14) <- cr_alpha_names()
@@ -52,31 +86,56 @@ names(rpt_14) <- cr_rpt_names()
 lapply(list(alpha_14, nmrc_14, rpt_14), head)
 ```
 
-You'd be correct in surmising that `rpt_rec_num` is the internal link between the three files. The `rpt` file has one entry per hospice submission (usually just one per year, but sometimes more). The `alpha` and `nmrc` files, though, have many. They do this becaues they have to collapse data from multiple spreadsheets into one uniform format. Each row points to a cell on a given worksheet.
+You'd be correct in surmising that `rpt_rec_num` is the internal link between
+the three files. The `rpt` file has one entry per hospice submission (usually
+just one per year, but sometimes more). The `alpha` and `nmrc` files, though,
+have many. They do this becaues they have to collapse data from multiple
+spreadsheets into one uniform format. Each row points to a cell on a given
+worksheet.
 
 ## `ALPHA` and `NMRC` data
 
-To subset a variable, you'll need to look through the actual worksheets that facilities fill out. If you download the documentation linked above for hospice, you'll find an Excel spreadsheet file with multiple pages. Some have address and location info. Others report patient counts and treatment days. Still others have staffing information and revenue / cost annual totals. 
+To subset a variable, you'll need to look through the actual worksheets that
+facilities fill out. If you download the documentation linked above for hospice,
+you'll find an Excel spreadsheet file with multiple pages. Some have address and
+location info. Others report patient counts and treatment days. Still others
+have staffing information and revenue / cost annual totals.
 
-First, we can see that the hospice name in on worksheet S-1. Lines are numbered, and it's row 1; similar for columns, we can see that it's column 1. The file convention is that the worksheet is always 6 characters, with no punctuation, with trailing 0's. Rows and columns are always multipled by 100. Since the name is an alphanumeric value, we should expect to find it in the `alpha` file. Note what happens if we try to extract it from the `nmrc` file.
+First, we can see that the hospice name in on worksheet S-1. Lines are numbered,
+and it's on row 1; similar for columns, we can see that it's in column 1. The
+file convention is that the worksheet is always 6 characters, with no
+punctuation, with trailing 0's. Rows and columns are always multipled by 100.
+Since the name is an alphanumeric value, we should expect to find it in the
+`alpha` file. Note what happens if we try to extract it from the `nmrc` file.
 
 ```{r}
 hospice_names <- cr_extract(alpha_14, "S100000", 100, 100, "hospice_name")
 nrow(hospice_names)
 hospice_names_nmrc <- cr_extract(nmrc_14, "S100000", 100, 100, "hospice_name")
 ```
-Several warnings are thrown for the attempted numeric extract. We can do similar extracts for the hospice address, state, zip code, and patient count.
+Several warnings are thrown for the attempted numeric extract. We can do similar
+extracts for the hospice address, state, zip code, and patient count.
 ```{r}
-hospice_address <- cr_extract(alpha_14, "S100000", 100, 200, "hospice_address")
-hospice_state <- cr_extract(alpha_14, "S100000", 100, 400, "hospice_state")
-hospice_zip <- cr_extract(alpha_14, "S100000", 100, 500, "hospice_zip")
-hospice_benes <- cr_extract(nmrc_14, "S100000", 1600, 600, "hospice_benes")
+hospice_address <- cr_extract(alpha_14, "S100000", 100, 200, "address")
+hospice_state <- cr_extract(alpha_14, "S100000", 100, 400, "state")
+hospice_zip <- cr_extract(alpha_14, "S100000", 100, 500, "zip")
+hospice_ownership <- cr_extract(nmrc_14, "S100000", 700, 100, "ownership")
+hospice_benes <- cr_extract(nmrc_14, "S100000", 1600, 600, "benes")
+hospice_costs <- cr_extract(nmrc_14, "G200002", 1500, 200, "costs")
+hospice_revenues <- cr_extract(nmrc_14, "G200001", 600, 100, "revenues")
+hospice_net_income <- cr_extract(nmrc_14, "G200002", 1600, 200, "net_income")
 ```
-The zip codes were found in the `alpha` file, when you might expect them to be strictly numeric. Some of the ambiguous ones won't be clear and might require you to check both sources. In this case, 9-digit zips were saved with a `-` after the first 5 digits, so it's a character variable.
+The zip codes were found in the `alpha` file, when you might expect them to be
+strictly numeric. Some of the ambiguous ones won't be clear and might require
+you to check both sources. In this case, 9-digit zips were saved with a `-`
+after the first 5 digits, so it's a character variable.
 
 All the files can be linked by `rpt_rec_num`, so let's merge them.
 ```{r, message = F}
-hospice_data <- Reduce(full_join, list(hospice_names, hospice_address, hospice_state, hospice_zip, hospice_benes))
+hospice_data <- Reduce(full_join, list(hospice_names, hospice_address, 
+                                       hospice_state, hospice_zip, hospice_ownership,
+                                       hospice_benes, hospice_costs, 
+                                       hospice_revenues, hospice_net_income))
 ```
 
 ```{r}
@@ -84,10 +143,86 @@ head(hospice_data)
 ```
 
 ## `rpt` data
-The `rpt` dataset has one entry per cost report filing. It includes the facility's CMS provider ID as well as its NPI, which can be used to link to other data sources. It also has the fiscal year start and end dates, so you know whether the data is current as of the end of the year vs. after a mid-year fiscal end date. Many of the variables aren't that useful, but it's worth skimming the documentation to see what you need. For now, we'll keep a few key variables and merge them with the rest of the data.
+The `rpt` dataset has one entry per cost report filing. It includes the
+facility's CMS provider ID as well as its NPI, which can be used to link to
+other data sources. It also has the fiscal year start and end dates, so you know
+whether the data is current as of the end of the year vs. after a mid-year
+fiscal end date. Many of the variables aren't that useful, but it's worth
+skimming the documentation to see what you need. For now, we'll keep a few key
+variables and merge them with the rest of the data.
 
-```{r}
+```{r, message = F}
 hospice_rpt_info <- rpt_14 %>% select(rpt_rec_num, prvdr_num, fy_bgn_dt, fy_end_dt)
 hospice_all <- full_join(hospice_rpt_info, hospice_data)
 ```
 
+## Analyses and Takeaways
+We now have a working dataset capable of some initial analyses. For starters, 
+recode the `ownership` variable to collapse into for-profit, nonprofit, and 
+government-run.
+
+```{r, fig.width = 6, fig.height = 4}
+hospice_all <- hospice_all %>%
+  mutate(
+    profit_group = ifelse(ownership <= 2, "nonprofit", 
+                          ifelse(ownership > 2 & ownership <= 6, "for-profit",
+                                 "government"))
+  ) %>%
+  mutate(
+    profit_group = factor(profit_group, levels = c("for-profit", "nonprofit", "government")),
+    per_bene_margin = net_income / benes
+  )
+
+# drop extreme outliers
+upper_bound <- quantile(hospice_all$per_bene_margin, 0.99, na.rm = T)
+lower_bound <- quantile(hospice_all$per_bene_margin, 0.01, na.rm = T)
+
+graph_data <- hospice_all %>%
+  filter(
+    !is.na(per_bene_margin), 
+    per_bene_margin <= upper_bound, 
+    per_bene_margin >= lower_bound
+  )
+
+ggplot() +
+  geom_boxplot(data = graph_data, aes(profit_group, per_bene_margin))
+
+```
+
+It looks like government-run agencies have very little variance in
+per-beneficiary profit rates. Overall, it looks like for-profit agencies have
+higher average profit rates than nonprofit agencies, but the both show high
+variation.
+
+```{r, fig.width = 6, fig.height = 4}
+# use the state geometry files from the 'data' package
+state_map = map_data("state")
+
+# make lower, to conform to state_map values
+states <- data.frame(state.abb, state.name)
+names(states) <- c("state", "state_name")
+states$state <- as.character(states$state)
+states$state_name <- tolower(states$state_name)
+
+graph_data %<>% full_join(states, by = "state")
+
+mean_by_state <- graph_data %>%
+  filter(!is.na(state_name)) %>%
+  group_by(state_name, profit_group) %>%
+  summarize(
+    mean_profits = mean(per_bene_margin, na.rm = T)
+  )
+
+ggplot() +
+  geom_map(data = mean_by_state, 
+           aes(map_id = state_name, fill = mean_profits),
+           map = state_map) +
+  expand_limits(x = state_map$long, y = state_map$lat) +
+  facet_wrap(~profit_group) +
+  scale_fill_gradient(low = "red", high = "blue")
+```
+
+Here, the sample size is limiting our ability to draw any meaningful conclusions
+from the maps. The demo data only has 500 of 2700+ observations available in the
+cost reports, so there are many gaps. Still, this illustrates some of the
+potential of this data.

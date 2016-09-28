@@ -1,2 +1,9 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+<<<<<<< HEAD
+=======
+^README\.Rmd$
+^README-.*\.png$
+^revdep$
+^data-raw$
+>>>>>>> 5c3976bbc4f60e954bdaf2f6b1db459d06364b68
