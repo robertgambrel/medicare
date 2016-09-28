@@ -67,3 +67,16 @@
 #'   }
 #' @source \url{https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html}
 "hospiceRPT"
+
+
+
+
+
+#' Sample Medicare Provider of Service 2010 data for hospices
+#' 
+#' A sample of Provider of Services data for select hospices in 2010. 
+#' This is raw data, similar to what you'd get on your own when reading in a csv.
+#' 
+#' @format A data frame with 402 rows and 530 variables
+#' @source \url{https://www.nber.org/data/provider-of-services.html}
+"pos2010"
