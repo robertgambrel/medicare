@@ -1,6 +1,6 @@
 ---
 title: "Extracting Variables from Cost Reports"
-author: "Robert Gambrel"
+author: "Robert J. Gambrel"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
