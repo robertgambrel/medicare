@@ -86,6 +86,9 @@ pos_names_extract <- function(layout_file, data_file) {
   
   # reorder the variable so that the new names are in the same name as the old
   # names in the data frame
+  if (sum(colmatches$old_names %in% ordering) != length(ordering)) {
+    stop("Number of variables in layout file did not match number of variables in the dataset. Are you sure the layout file year and dataset year match?")
+  }
   colmatches <- colmatches[match(ordering, colmatches$old_names), ]
   
   return(colmatches$new_names)
