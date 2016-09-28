@@ -68,7 +68,7 @@ pos_names_extract <- function(layout_file, data_file) {
   
   # they should be the same length. If not, raise an error
   if (length(old_names) != length(new_names)) {
-    stop("Problem parsing layout: count of original names and descriptive names did not match.")
+    stop("Problem parsing layout: count of original names and descriptive names did not match. Are you sure the layout file matches the year of the data file?")
   }
   
   # combine old and new (they're sorted in the data, so OK to just cbind them)
@@ -86,8 +86,8 @@ pos_names_extract <- function(layout_file, data_file) {
   
   # reorder the variable so that the new names are in the same name as the old
   # names in the data frame
-  colmatches <- colmatches[match(ordering, colmatches$oldcols), ]
+  colmatches <- colmatches[match(ordering, colmatches$old_names), ]
   
-  return(colmatches)
+  return(colmatches$new_names)
   
 }
