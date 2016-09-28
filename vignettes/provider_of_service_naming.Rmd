@@ -69,3 +69,18 @@ pos2010_wrong_names <- pos2010
 names(pos2010_wrong_names)[1:3] <- c("wrong1", "wrong2", "wrong3")
 names_2010_wrong_names <- pos_names_extract(filepath, pos2010_wrong_names)
 ```
+
+
+## Pre-compiled dataset names 
+
+In order to same the user time and headaches of
+downloading each year's Layout file, I have pre-compiled dataset names for years
+2000-2010. These can be accessed via the `pos_names()` function. By looking at
+inner variables, this also illustrates how the dataset layouts change over time:
+
+```{r}
+for (year in 2000:2010) {
+  print(year)
+  print(pos_names(year)[200:205])
+}
+```
