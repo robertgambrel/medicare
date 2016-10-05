@@ -25,9 +25,10 @@ full 2010 file (along with many other years) is available [from the
 NBER](https://www.nber.org/data/provider-of-services.html) and contains data
 from other provider types as well.
 
-```{r}
+```{r, eval = T}
 library(medicare)
-data(pos2010)
+# load the package data
+pos2010 <- pos2010
 names(pos2010)[1:10]
 ```
 
