@@ -28,7 +28,7 @@ from other provider types as well.
 ```{r, eval = T}
 library(medicare)
 # load the package data
-pos2010 <- pos2010
+data(pos2010, package = "medicare")
 names(pos2010)[1:10]
 ```
 
@@ -39,6 +39,7 @@ but I expect the user to have the downloaded text file that corresponds to each
 dataset in use.
 
 ```{r}
+# filepath should be changed by user
 filepath <- system.file("extdata", "layout10.txt", package = "medicare")
 names_2010 <- pos_names_extract(filepath, pos2010)
 names_2010[1:10]
