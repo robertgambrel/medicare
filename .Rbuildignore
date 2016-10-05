@@ -9,3 +9,4 @@
 >>>>>>> 5c3976bbc4f60e954bdaf2f6b1db459d06364b68
 ^\.travis\.yml$
 ^NEWS\.md$
+cran\-comments\.md
