@@ -8,16 +8,16 @@ The medicare package is a collection of functions and methods I've used to manip
 Installation and Documentation
 ------------------------------
 
-`medicare` is still under active development and thus not ready for CRAN. You can install the latest development version of the package by using
+`medicare` is under active development and available on CRAN. You can install the latest release version of the package by using
 
-install.packages("broom")
+    install.packages("medicare")
 
 You can install the development version of the `medicare` package using [devtools](https://github.com/hadley/devtools):
 
     library(devtools)
-    install_github("robertgambrel/medicare")
+    devtools::install_github("robertgambrel/medicare")
 
-Please let me know about any problems by [opening an issue](http://github.com/robertgambrel/medicarede/issues).
+Please let me know about any problems by [opening an issue](http://github.com/robertgambrel/medicare/issues).
 
 For examples on how to use some of the functionality, check out the Vignettes, which show examples similar to what I've done in my work.
 
