@@ -1,7 +1,7 @@
 Package: medicare
 Type: Package
 Title: Useful tools for obtaining and cleaning Medicare public use files
-Version: 0.0.0.9002
+Version: 0.1.0
 Authors@R: person("Robert", "Gambrel", email = "robert.gambrel@gmail.com", 
                   role = c("aut", "cre"))
 Description: This package has a set of commands useful for manipulating 
