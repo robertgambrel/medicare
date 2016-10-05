@@ -4,10 +4,9 @@ Title: Useful Tools for Obtaining and Cleaning Medicare Public Use Files
 Version: 0.1.0
 Authors@R: person("Robert", "Gambrel", email = "robert.gambrel@gmail.com", 
                   role = c("aut", "cre"))
-Description: This package has a set of commands useful for manipulating 
-    Medicare's publicly available data. Many data sources require extensive
+Description: Publicly available data from Medicare frequently requires extensive
     initial effort to extract desired variables and merge them; this package
-    formalizes the techniques I've found to work best for them.
+    formalizes the techniques I've found work best.
 License: MIT + file LICENSE
 LazyData: TRUE
 Imports: 
