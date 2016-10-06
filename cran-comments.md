@@ -1,3 +1,8 @@
+## Resubmission
+This is a resubmission. In this version I have:
+
+* Added a link to CMS data documentation in the description, as well as the package help file (?medicare)
+
 ## Test Environments
 * local OS X install, R 3.3.1
 * win-builder

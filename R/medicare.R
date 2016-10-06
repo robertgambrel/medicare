@@ -8,6 +8,14 @@
 #'   package focuses mostly on Cost Reports and Provider of Service files, but
 #'   more support will be added for other sources in the future.
 #'   
+#' @seealso For more information on Medicare the the data available, see:
+#' 
+#' \itemize{
+#' \item \href{https://www.cms.gov/Research-Statistics-Data-and-Systems/Research-Statistics-Data-and-Systems.html}{CMS's website on publicly available data}
+#' \item \href{https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/index.html}{CMS's documentation and download links for Cost Report data}
+#' \item \href{https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Provider-of-Services/index.html}{CMS's documentation and download links for Provider of Services data}
+#' }
+#'  
 #'   
 #' @docType package
 #' @aliases medicare medicare-package
