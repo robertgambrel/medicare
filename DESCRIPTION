@@ -1,7 +1,7 @@
 Package: medicare
 Type: Package
 Title: Tools for Obtaining and Cleaning Medicare Public Use Files
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: person("Robert", "Gambrel", email = "robert.gambrel@gmail.com", 
                   role = c("aut", "cre"))
 Description: Publicly available data from Medicare frequently requires extensive
