@@ -30,11 +30,11 @@ subset_row <- function(dataset, row) {
                           error = function(x) return(NA), 
                           warning = function(x) return(NA))
   
-  data_subset <- dataset[dataset[, 3] %in% list(no_zero_row, 
+  data_subset <- dataset[dataset[[3]] %in% list(no_zero_row, 
                                          one_zero_row,
                                          two_zero_row, 
                                          numeric_row) &
-                     !is.na(dataset[, 3]), ]
+                     !is.na(dataset[[3]]), ]
   
 
   if (nrow(data_subset) == 0) {
