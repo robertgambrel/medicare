@@ -25,8 +25,15 @@ increases due to utilization changes, it is frequently useful to "deflate"
 spending based on a reference period, so that observed changes are not due to
 inflation.
 }
+\details{
+Most sectors come from annual Federal Register Final Rules. Example:
+\href{https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/PhysicianFeeSched/index.html}{Physician Fee Change Rules}.
+
+Exceptions are \code{other}, which uses the general CPI deflator, and
+\code{part_d_drugs}, which use the CPI-Pharmaceutical deflator.`
+}
 \examples{
-# convert $100 in current inpatient spending to year 2000 dollars
+# convert $100 in current inpatient spending to year 2005 dollars
 price_deflate(100, "ip", 2014, 2005) 
 }
 

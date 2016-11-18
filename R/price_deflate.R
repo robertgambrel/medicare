@@ -6,6 +6,12 @@
 #' spending based on a reference period, so that observed changes are not due to
 #' inflation.
 #' 
+#' Most sectors come from annual Federal Register Final Rules. Example:
+#' \href{https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/PhysicianFeeSched/index.html}{Physician Fee Change Rules}.
+#' 
+#' Exceptions are \code{other}, which uses the general CPI deflator, and
+#' \code{part_d_drugs}, which use the CPI-Pharmaceutical deflator.`
+#' 
 #' @param current_value The current value that is being deflated to reference-period-equivalent dollars
 #' @param sector What sector is being adjusted. Currently supports: ip, op, phys, snf, hh, hospice, part_b_drugs, part_d_drugs, and other
 #' @param current_year The current year (2002 - 2014)
@@ -14,7 +20,7 @@
 #' @return A float value, current_value / (current year index / reference year index)
 #'   
 #' @examples 
-#' # convert $100 in current inpatient spending to year 2000 dollars
+#' # convert $100 in current inpatient spending to year 2005 dollars
 #' price_deflate(100, "ip", 2014, 2005) 
 #' @export
 
