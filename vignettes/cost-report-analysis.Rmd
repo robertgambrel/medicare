@@ -18,8 +18,7 @@ cost report documentation or the actual worksheets themselves.
 
 Medicare cost reports for skilled nursing facilities, hospitals, and home health
 agencies are available at [CMS's
-website](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Cost-Reports-by-Fiscal-Year.html).
-Documentation of the cost reports, which will There is a [separate
+website](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Cost-Reports-by-Fiscal-Year.html). There is a [separate
 site](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html)
 for hospice cost reports. Documentation of how each sector reports, and copies
 of the actual cost report worksheets that will help you determine which
