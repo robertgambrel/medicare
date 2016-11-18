@@ -1,7 +1,9 @@
-## Resubmission
-This is a resubmission. In this version I have:
+## medicare 0.2.0
 
-* Added a link to CMS data documentation in the description, as well as the package help file (?medicare)
+## Changes
+* Added `price_deflate` function, to adjust Medicare spending levels to fixed price levels
+* Fixed bugs in `cr_extract` that caused errors when subsetting tibbles instead of data.frames
+* Fixed typos in vignettes.
 
 ## Test Environments
 * local OS X install, R 3.3.1
