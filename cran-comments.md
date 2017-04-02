@@ -6,9 +6,9 @@
 * Tweaked adjustment factors used in `price_deflate` based on updated values in government sources.
 
 ## Test Environments
-* local OS X install, R 3.3.2
+* local OS X install, R 3.3.3
 * win-builder
-* ubuntu 12.04 (on travis-ci), R 3.3.1
+* ubuntu 12.04 (on travis-ci), R 3.3.2
 
 ## R CMD check results
 There were no ERRORs, WARNINGs, or NOTEs.
