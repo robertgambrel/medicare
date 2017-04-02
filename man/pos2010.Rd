@@ -16,4 +16,3 @@ A sample of Provider of Services data for select hospices in 2010.
 This is raw data, similar to what you'd get on your own when reading in a csv.
 }
 \keyword{datasets}
-

@@ -37,4 +37,3 @@ A dataset containing the report data for the first 500 hospices in the Hospice
 with \code{read.csv("hospc_2014_RPT.csv", stringsAsFactors = FALSE)}.
 }
 \keyword{datasets}
-

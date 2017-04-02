@@ -4,6 +4,7 @@
 \name{medicare}
 \alias{medicare}
 \alias{medicare-package}
+\alias{medicare-package}
 \title{medicare: tools for simplifying Medicare data analysis}
 \description{
 The medicare package contains useful functions for manipulating
@@ -22,4 +23,3 @@ For more information on Medicare the the data available, see:
 \item \href{https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Provider-of-Services/index.html}{CMS's documentation and download links for Provider of Services data}
 }
 }
-

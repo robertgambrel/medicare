@@ -18,4 +18,3 @@ A subset of the provided dataset, subset to only having columns of the
 \description{
 This function is not standalone - it is called from the cr_extract function.
 }
-

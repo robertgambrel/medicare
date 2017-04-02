@@ -54,4 +54,3 @@ alpha_data <- hospiceALPHA
 hospice_name <- cr_extract(alpha_data, "S100000", 100, 100, "name")
 
 }
-

@@ -18,4 +18,3 @@ Provide names for Cost Report "Report Table" data
 cr_rpt_names()
 
 }
-

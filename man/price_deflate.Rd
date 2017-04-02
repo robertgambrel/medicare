@@ -36,4 +36,3 @@ Exceptions are \code{other}, which uses the general CPI deflator, and
 # convert $100 in current inpatient spending to year 2007 dollars
 price_deflate(100, "ip", 2014, 2007) 
 }
-

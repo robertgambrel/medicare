@@ -24,4 +24,3 @@ A dataset containing the numeric data for the first 500 hospices in the Hospice
 with \code{read.csv("hospc_2014_NMRC.csv", stringsAsFactors = FALSE)}.
 }
 \keyword{datasets}
-

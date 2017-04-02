@@ -18,4 +18,3 @@ Provide names for Cost Report "Alpha Table" data
 cr_nmrc_names()
 
 }
-

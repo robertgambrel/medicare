@@ -15,7 +15,7 @@ Imports:
 Depends: R (>= 2.10)
 URL: http://www.github.com/robertgambrel/medicare
 BugReports: http://www.github.com/robertgambrel/medicare/issues
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown,
     dplyr,
