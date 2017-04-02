@@ -1,12 +1,12 @@
-## medicare 0.2.0
+## medicare 0.2.1
+
+
 
 ## Changes
-* Added `price_deflate` function, to adjust Medicare spending levels to fixed price levels
-* Fixed bugs in `cr_extract` that caused errors when subsetting tibbles instead of data.frames
-* Fixed typos in vignettes.
+* Tweaked adjustment factors used in `price_deflate` based on updated values in government sources.
 
 ## Test Environments
-* local OS X install, R 3.3.1
+* local OS X install, R 3.3.2
 * win-builder
 * ubuntu 12.04 (on travis-ci), R 3.3.1
 
