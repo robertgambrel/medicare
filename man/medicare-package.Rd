@@ -6,13 +6,13 @@
 \alias{medicare-package}
 \title{medicare: Tools for Obtaining and Cleaning Medicare Public Use Files}
 \description{
-Publicly available data from Medicare frequently requires extensive initial effort to extract desired variables and merge them; this package formalizes the techniques I've found work best. More information on the Medicare program, as well as guidance for the publicly available data this package targets, can be found on CMS's website covering publicly available data. See \url{https://www.cms.gov/Research-Statistics-Data-and-Systems/Research-Statistics-Data-and-Systems.html}.
+Publicly available data from Medicare frequently requires extensive initial effort to extract desired variables and merge them; this package formalizes the techniques I've found work best. More information on the Medicare program, as well as guidance for the publicly available data this package targets, can be found on CMS's website covering publicly available data. See \url{https://www.cms.gov/data-research}.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://www.github.com/robertgambrel/medicare}
-  \item Report bugs at \url{http://www.github.com/robertgambrel/medicare/issues}
+  \item \url{https://github.com/robertgambrel/medicare}
+  \item Report bugs at \url{https://github.com/robertgambrel/medicare/issues}
 }
 
 }

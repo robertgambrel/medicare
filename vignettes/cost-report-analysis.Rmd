@@ -18,20 +18,20 @@ cost report documentation or the actual worksheets themselves.
 
 Medicare cost reports for skilled nursing facilities, hospitals, and home health
 agencies are available at [CMS's
-website](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Cost-Reports-by-Fiscal-Year.html). There is a [separate
-site](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html)
+website](https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/cost-reports-fiscal-year). There is a [separate
+site](https://www.cms.gov/research-statistics-data-and-systems/downloadable-public-use-files/cost-reports/hospice)
 for hospice cost reports. Documentation of how each sector reports, and copies
 of the actual cost report worksheets that will help you determine which
 worksheet, row, and column you need to extract a particular variable of
 interest, [are
-here](https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Paper-Based-Manuals-Items/CMS021935.html).
+here](https://www.cms.gov/regulations-and-guidance/guidance/manuals/paper-based-manuals-items/cms021935).
 
 Hospices and HHA's have used the same reporting forms since the mid 1990's.
 Skilled nursing facilities and hospitals, however, switched their reporting
 guidelines in 2010. Therefore, writing extracts for variables from the 1996
 forms will not work for data from the 2010 form. Crosswalks are available [on
 the sidebar
-here](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/index.html).
+here](https://www.cms.gov/research-statistics-data-and-systems/downloadable-public-use-files/cost-reports/index).
 Once you find the variable you want in the 1996 form, it's easy to translate the
 worksheet number, row, and column to the newer format. It's good practice to
 check a few facilities' results from both sources to make sure that the data is

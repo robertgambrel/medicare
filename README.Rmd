@@ -27,9 +27,9 @@ cleaning before any analysis can take place. Files are often raw dumps of
 database tables, which the researcher is expected to subset and merge to make a
 workable dataset. This package contains methods to extract data from such
 datasets (e.g. [Cost
-Reports](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Cost-Reports-by-Fiscal-Year.html)),
+Reports](https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/cost-reports-fiscal-year)),
 provide useful names for variables (Cost Reports and [Provider of Services
-File](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Provider-of-Services/)),
+File](https://www.cms.gov/data-research/statistics-trends-and-reports/provider-services)),
 and even parse data dictionary / layout files to extract variable names for
 older datasets, where names in the raw data are essentially `Var1, Var2,
 Var3...` (Provider of Services File).
@@ -44,14 +44,14 @@ can install the latest release version of the package by using
 install.packages("medicare")
 ```
 
-You can install the development version of the `medicare` package using [devtools](https://github.com/hadley/devtools):
+You can install the development version of the `medicare` package using [devtools](https://github.com/r-lib/devtools):
 
 ```
 library(devtools)
 devtools::install_github("robertgambrel/medicare")
 ```
 
-Please let me know about any problems by [opening an issue](http://github.com/robertgambrel/medicare/issues).
+Please let me know about any problems by [opening an issue](https://github.com/robertgambrel/medicare/issues).
 
 
 For detailed examples on how to use some of the functionality, check out the
