@@ -14,7 +14,7 @@ Publicly available Medicare data often requires extensive preparation
 and cleaning before any analysis can take place. Files are often raw
 dumps of database tables, which the researcher is expected to subset and
 merge to make a workable dataset. This package contains methods to
-extract data from such datasets (e.g. [Cost
+extract data from such datasets (e.g. [Cost
 Reports](https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/cost-reports-fiscal-year)),
 provide useful names for variables (Cost Reports and [Provider of
 Services
