@@ -15,7 +15,7 @@ A data frame with 200,202 rows and 5 variables:
   }
 }
 \source{
-\url{https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html}
+\url{https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/cost-reports-fiscal-year}
 }
 \usage{
 hospiceNMRC

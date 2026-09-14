@@ -14,11 +14,11 @@ Publicly available Medicare data often requires extensive preparation
 and cleaning before any analysis can take place. Files are often raw
 dumps of database tables, which the researcher is expected to subset and
 merge to make a workable dataset. This package contains methods to
-extract data from such datasets (e.g. [Cost
+extract data from such datasets (e.g. [Cost
 Reports](https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/cost-reports-fiscal-year)),
 provide useful names for variables (Cost Reports and [Provider of
 Services
-File](https://www.cms.gov/data-research/statistics-trends-and-reports/provider-services)),
+File](https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system/)),
 and even parse data dictionary / layout files to extract variable names
 for older datasets, where names in the raw data are essentially
 `Var1, Var2, Var3...` (Provider of Services File).

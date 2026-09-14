@@ -3,7 +3,8 @@
 
 
 ## Changes
-* Tweaked adjustment factors used in `price_deflate` based on updated values in government sources.
+* Updated documentation to fix bracket mismatch.
+* Check and update web hyperlinks.
 
 ## Test Environments
 * local OS X install, R 4.6.1

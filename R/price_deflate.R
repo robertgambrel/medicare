@@ -7,7 +7,7 @@
 #' inflation.
 #' 
 #' Most sectors come from annual Federal Register Final Rules. Example:
-#' \href{https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/PhysicianFeeSched/index.html}{Physician Fee Change Rules}.
+#' \href{https://www.cms.gov/medicare/payment/fee-schedules/physician}{Physician Fee Change Rules}.
 #' 
 #' Exceptions are \code{other}, which uses the general CPI deflator, and
 #' \code{part_d_drugs}, which use the CPI-Pharmaceutical deflator.`

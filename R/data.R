@@ -12,7 +12,7 @@
 #'   \item{V4}{The \code{clmn_num}, indicating the column on the worksheet where the variable is found.}
 #'   \item{V5}{The \code{itm_alphanmrc_itm_txt}, indicating the variable's value.}
 #'   }
-#' @source \url{https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html}
+#' @source \url{https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/cost-reports-fiscal-year}
 "hospiceALPHA"
 
 
@@ -31,7 +31,7 @@
 #'   \item{V4}{The \code{clmn_num}, indicating the column on the worksheet where the variable is found.}
 #'   \item{V5}{The \code{itm_val_num}, indicating the variable's value.}
 #'   }
-#' @source \url{https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html}
+#' @source \url{https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/cost-reports-fiscal-year}
 "hospiceNMRC"
 
 
@@ -65,7 +65,7 @@
 #'   \item{V17}{The \code{spec_ind}, a CMS internal special purposes code.}
 #'   \item{V18}{The \code{fi_rcpt_dt}, the date the cost report was received by the fiscal intermediary.}
 #'   }
-#' @source \url{https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html}
+#' @source \url{https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/cost-reports-fiscal-year}
 "hospiceRPT"
 
 

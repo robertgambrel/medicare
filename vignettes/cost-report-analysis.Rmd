@@ -19,7 +19,7 @@ cost report documentation or the actual worksheets themselves.
 Medicare cost reports for skilled nursing facilities, hospitals, and home health
 agencies are available at [CMS's
 website](https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/cost-reports-fiscal-year). There is a [separate
-site](https://www.cms.gov/research-statistics-data-and-systems/downloadable-public-use-files/cost-reports/hospice)
+site](https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system)
 for hospice cost reports. Documentation of how each sector reports, and copies
 of the actual cost report worksheets that will help you determine which
 worksheet, row, and column you need to extract a particular variable of
@@ -31,7 +31,7 @@ Skilled nursing facilities and hospitals, however, switched their reporting
 guidelines in 2010. Therefore, writing extracts for variables from the 1996
 forms will not work for data from the 2010 form. Crosswalks are available [on
 the sidebar
-here](https://www.cms.gov/research-statistics-data-and-systems/downloadable-public-use-files/cost-reports/index).
+here](https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports).
 Once you find the variable you want in the 1996 form, it's easy to translate the
 worksheet number, row, and column to the newer format. It's good practice to
 check a few facilities' results from both sources to make sure that the data is
