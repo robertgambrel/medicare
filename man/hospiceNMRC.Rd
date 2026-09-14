@@ -4,14 +4,16 @@
 \name{hospiceNMRC}
 \alias{hospiceNMRC}
 \title{Sample Medicare Hospice Cost Report 2014 data}
-\format{A data frame with 200,202 rows and 5 variables: 
-\itemize{ 
+\format{
+A data frame with 200,202 rows and 5 variables: 
+\describe{ 
   \item{V1}{The \code{rpt_rec_num}, used to link a hospices dataset across the 3 yearly files.}
   \item{V2}{The \code{wksht_cd}, indicating which worksheet the variable comes from.} 
   \item{V3}{The \code{line_num}, indicating the line on the worksheet where the variable is found.}
   \item{V4}{The \code{clmn_num}, indicating the column on the worksheet where the variable is found.}
   \item{V5}{The \code{itm_val_num}, indicating the variable's value.}
-  }}
+  }
+}
 \source{
 \url{https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html}
 }

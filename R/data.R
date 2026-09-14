@@ -5,7 +5,7 @@
 #' with \code{read.csv("hospc_2014_ALPHA.csv", stringsAsFactors = FALSE)}.
 #' 
 #' @format A data frame with 61820 rows and 5 variables: 
-#' \itemize{ 
+#' \describe{ 
 #'   \item{V1}{The \code{rpt_rec_num}, used to link a hospices dataset across the 3 yearly files.}
 #'   \item{V2}{The \code{wksht_cd}, indicating which worksheet the variable comes from.} 
 #'   \item{V3}{The \code{line_num}, indicating the line on the worksheet where the variable is found.}
@@ -24,7 +24,7 @@
 #' with \code{read.csv("hospc_2014_NMRC.csv", stringsAsFactors = FALSE)}.
 #' 
 #' @format A data frame with 200,202 rows and 5 variables: 
-#' \itemize{ 
+#' \describe{ 
 #'   \item{V1}{The \code{rpt_rec_num}, used to link a hospices dataset across the 3 yearly files.}
 #'   \item{V2}{The \code{wksht_cd}, indicating which worksheet the variable comes from.} 
 #'   \item{V3}{The \code{line_num}, indicating the line on the worksheet where the variable is found.}
@@ -45,7 +45,7 @@
 #' with \code{read.csv("hospc_2014_RPT.csv", stringsAsFactors = FALSE)}.
 #' 
 #' @format A data frame with 500 rows and 5 variables: 
-#' \itemize{ 
+#' \describe{ 
 #'   \item{V1}{The \code{rpt_rec_num}, used to link a hospices dataset across the 3 yearly files.}
 #'   \item{V2}{The \code{prvdr_ctrl_type_cd}, indicating the ownership structure of the facility.} 
 #'   \item{V3}{The \code{prvdr_num}, a 6-character unique ID used to link the facility's information across time and with other Medicare data.}

@@ -4,8 +4,9 @@
 \name{hospiceRPT}
 \alias{hospiceRPT}
 \title{Sample Medicare Hospice Cost Report 2014 data}
-\format{A data frame with 500 rows and 5 variables: 
-\itemize{ 
+\format{
+A data frame with 500 rows and 5 variables: 
+\describe{ 
   \item{V1}{The \code{rpt_rec_num}, used to link a hospices dataset across the 3 yearly files.}
   \item{V2}{The \code{prvdr_ctrl_type_cd}, indicating the ownership structure of the facility.} 
   \item{V3}{The \code{prvdr_num}, a 6-character unique ID used to link the facility's information across time and with other Medicare data.}
@@ -24,7 +25,8 @@
   \item{V16}{The \code{npr_dt}, the date of notice of program reimbursement.}
   \item{V17}{The \code{spec_ind}, a CMS internal special purposes code.}
   \item{V18}{The \code{fi_rcpt_dt}, the date the cost report was received by the fiscal intermediary.}
-  }}
+  }
+}
 \source{
 \url{https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/Hospice.html}
 }

@@ -1,7 +1,7 @@
 Package: medicare
 Type: Package
 Title: Tools for Obtaining and Cleaning Medicare Public Use Files
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: person("Robert", "Gambrel", email = "robert.gambrel@gmail.com", 
                   role = c("aut", "cre"))
 Description: Publicly available data from Medicare frequently requires extensive
@@ -15,7 +15,6 @@ Imports:
 Depends: R (>= 2.10)
 URL: http://www.github.com/robertgambrel/medicare
 BugReports: http://www.github.com/robertgambrel/medicare/issues
-RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown,
     dplyr,
@@ -24,3 +23,5 @@ Suggests: knitr,
     magrittr,
     testthat
 VignetteBuilder: knitr
+Config/roxygen2/version: 8.1.0
+Encoding: UTF-8

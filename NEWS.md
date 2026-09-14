@@ -1,3 +1,7 @@
+# Medicare 0.2.2
+- Updates:
+  - Fix warnings for newer versions of R
+
 # Medicare 0.2.1
 - Updates:
   - `price_deflate()` updated with newer government published figures.

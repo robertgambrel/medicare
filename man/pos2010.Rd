@@ -4,7 +4,9 @@
 \name{pos2010}
 \alias{pos2010}
 \title{Sample Medicare Provider of Service 2010 data for hospices}
-\format{A data frame with 402 rows and 530 variables}
+\format{
+A data frame with 402 rows and 530 variables
+}
 \source{
 \url{https://www.nber.org/data/provider-of-services.html}
 }
